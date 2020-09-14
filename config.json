@@ -1,0 +1,12 @@
+{
+  "params":
+  {
+    "admin_name": "admin",
+    "admin_pass": "admin",
+    "upload_location_student": "C:\\Users\\ketul\\PycharmProjects\\SDP-project\\Database\\Student",
+    "upload_location_faculty": "C:\\Users\\ketul\\PycharmProjects\\SDP-project\\Database\\Faculty"
+  }
+
+
+
+}
