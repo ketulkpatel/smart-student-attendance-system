@@ -38,50 +38,62 @@ table.center {
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
 				<form class="login100-form validate-form" action="/assignfacultysubject" method="post" onSubmit = "return checkPassword(this)" enctype="multipart/form-data">
 					<span class="login100-form-title p-b-33">
-						Assign faculty a subject
+						Creat Class
 					</span>
 
+					<div class="wrap-input100 validate-input">
+						<div class="input100">
+							<table class="center">
+							<tr>
+							<td>Select Branch</td>
+							<div class="checkbox-group required">
+							<td><input  name="fbranch" type="checkbox" value="CE">CE</td>
+							<td><input name="fbranch" type="checkbox" value="IT">IT</td>
+							<td><input name="fbranch" type="checkbox" value="EC">EC</td>
+							</div>
+							<span class="focus-input100-1"></span>
+							<span class="focus-input100-2"></span>
+							</table>
+						</div>
+					</div>
+					 <div class="wrap-input100 rs1 validate-input">
+						<div class="input100">
+							<select class="input100" name="semester" required> 
+        						<option value="">  Select Semester</option> 
+						        <option value="1">1</option> 
+						        <option value="2">2 </option> 
+						        <option value="3">3</option> 
+						        <option value="4">4</option>
+						        <option value="5">5</option>
+						        <option value="6">6</option>
+						        <option value="7">7</option>
+						        <option value="8">8</option> 
+						        <span class="focus-input100-1"></span>
+								<span class="focus-input100-2"></span>
+    						</select> 
+    					</div>
+    				</div>
+    				
+
+
 					<div class="wrap-input100 validate-input" data-validate = "Valid uid is required: 00exaaa000">
-						<input class="input100" type="text" name="fid" placeholder="Enter FacultyId" required>
+						<input class="input100" type="text" name="fid" placeholder="Select FacultyId" required>
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
 
 					<div class="wrap-input100 rs1 validate-input">
-						<input class="input100" type="text" name="fsubcode" placeholder="Enter Subject code" required>
+						<input class="input100" type="text" name="fsubcode" placeholder="Select Subject code" required>
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
-
-
-
-
-
-										
-					 <!-- <div class="wrap-input100 rs1 validate-input">
-						<div class="input100">
-							<table class="center">
-							<tr>
-							<td>Select Subjects</td>
-							<div class="checkbox-group required">
-							<td><input  name="fsubject" type="checkbox" value="Python">Python</td>
-							<td><input name="fsubject" type="checkbox" value="Java">Java</td>
-							
-							<td><input name="fsubject" type="checkbox" value="Javascript">Javascript</td>
-							</div>
-							</tr>
-
-							<span class="focus-input100-1"></span>
-							<span class="focus-input100-2"></span>
-							</table>
-						</div>
-					</div> -->
+				
 
 					<div class="container-login100-form-btn m-t-20">
 						<button class="login100-form-btn" type="submit">
-							SUBMIT & ASSIGN ANOTHER SUBJECT
+							SUBMIT
 						</button>
-					</div>
+					</div> 
 
 					
 					

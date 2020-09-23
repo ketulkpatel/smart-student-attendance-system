@@ -1,9 +1,17 @@
-from flask import Flask, render_template, request, session
+from re import S
+from flask import Flask, render_template, request, session,redirect,url_for,Response
 import json
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.sql.schema import ForeignKey
 from werkzeug.utils import secure_filename
-import pymysql
 import os
+from flask_mysqldb import MySQL
+import MySQLdb.cursors
+import re
+import mysql.connector
+import csv
+import cv2
+from camera import VideoCamera
 
 
 with open('config.json', 'r') as c:
@@ -13,21 +21,30 @@ app.config['SQLALCHEMY_DATABASE_URI']= 'mysql+pymysql://root:@localhost/test'
 app.secret_key = 'super secret key'
 app.config['upload_folder_student']=params['upload_location_student']
 app.config['upload_folder_faculty']=params['upload_location_faculty']
+app.config['upload_folder_student_data']=params['upload_location_student_data']
+
 db=SQLAlchemy(app)
 
+# Enter your database connection details below
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'test'
 
-class Test_student(db.Model):
-    s_id=db.Column(db.String(11),nullable=False,primary_key=True)
-    s_fname = db.Column(db.String(11), nullable=False)
-    s_lname = db.Column(db.String(11), nullable=False)
-    s_password = db.Column(db.String(11), nullable=False)
-    s_contact = db.Column(db.Integer, nullable=False)
-    stu_classes= db.relationship('Test_student_class', backref='test_student', lazy=True)
+
+mydb=mysql.connector.connect(host='localhost',user='root',password='',database='test')
+
+
+# Intialize MySQL
+mysql = MySQL(app)
+global att_data
+att_data = []
+
+
 
 class Test_faculty(db.Model):
     f_id=db.Column(db.String(11),nullable=False,primary_key=True)
-    f_fname = db.Column(db.String(11), nullable=False)
-    f_lname = db.Column(db.String(11), nullable=False)
+    f_name = db.Column(db.String(11), nullable=False)
     f_password = db.Column(db.String(11), nullable=False)
     f_contact = db.Column(db.String(11), nullable=False)
     classes = db.relationship('Test_class', backref='test_faculty', lazy=True)
@@ -41,7 +58,12 @@ class Test_subject(db.Model):
 
 class Test_student_class(db.Model):
     stu_class_id = db.Column(db.Integer, primary_key=True)
-    s_id = db.Column(db.String(11), db.ForeignKey('test_student.s_id'),nullable=False)
+    s_id = db.Column(db.String(11),nullable=False)
+    s_name = db.Column(db.String(11),nullable=False)
+    s_branch = db.Column(db.String(11),nullable=False)
+    s_sem = db.Column(db.Integer,nullable=False)
+    s_password = db.Column(db.String(11),nullable=False)
+    s_contact = db.Column(db.Integer,nullable=False)
     class_id= db.Column(db.Integer, db.ForeignKey('test_class.class_id'),nullable=False)
 
 class Test_class(db.Model):
@@ -49,6 +71,7 @@ class Test_class(db.Model):
     f_id = db.Column(db.Integer, db.ForeignKey('test_faculty.f_id'),nullable=False)
     sub_code = db.Column(db.String(11), db.ForeignKey('test_subject.sub_code'),nullable=False)
     students=db.relationship('Test_student_class', backref='test_class', lazy=True)
+
 
 
 @app.route("/")
@@ -67,36 +90,47 @@ def signin():
         if (uname == params['admin_name'] and upass == params['admin_pass']):
             session['user']=uname
             return render_template('admin.html')
+
+    if request.method == 'POST' and 'uid' in request.form and 'pass' in request.form:
+        # Create variables for easy access
+        global id
+        id= request.form['uid']
+        password = request.form['pass']
+
+
+        # Check if account exists using MySQL
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM test_faculty WHERE f_id = %s AND f_password = %s', (id, password))
+        # Fetch one record and return result
+        fac_res = cursor.fetchone()
+        # If account exists in accounts table in out database
+        if fac_res:
+            # Create session data, we can access this data in other routes
+            session['loggedin'] = True
+            session['id'] = fac_res['f_id']
+            #session['username'] = account['username']
+            # Redirect to home page
+
+            return render_template('faculty.html')
+            return 'Logged in successfully!'
+        else:
+            # Account doesnt exist or username/password incorrect
+            msg = 'Incorrect username/password!'
+
     return render_template('index.html')
 
-
-@app.route("/storestudentdetails",methods=['GET', 'POST'])
-def storestudentdetails():
-    if request.method == "POST":
-        sid=request.form.get('sid')
-        sfname=request.form.get('sfname')
-        slname=request.form.get('slname')
-        spassword=request.form.get('spassword1')
-        scontact=request.form.get('scontact')
-        f = request.files['simage']
-        f.save(os.path.join(app.config['upload_folder_student'],secure_filename(f.filename)))
-        entry=Test_student(s_id=sid,s_fname=sfname,s_lname=slname,s_password=spassword,s_contact=scontact)
-        db.session.add(entry)
-        db.session.commit()
-    return render_template('admin.html')
 
 
 @app.route("/storefacultydetails",methods=['GET', 'POST'])
 def storefacultydetails():
     if request.method == "POST":
         fid=request.form.get('fid')
-        ffname=request.form.get('ffname')
-        flname=request.form.get('flname')
+        fname=request.form.get('fname')
         fpassword=request.form.get('fpassword1')
         fcontact=request.form.get('fcontact')
         f = request.files['fimage']
         f.save(os.path.join(app.config['upload_folder_faculty'],secure_filename(f.filename)))
-        entry_fac=Test_faculty(f_id=fid,f_fname=ffname,f_lname=flname,f_password=fpassword,f_contact=fcontact)
+        entry_fac=Test_faculty(f_id=fid,f_name=fname,f_password=fpassword,f_contact=fcontact)
         db.session.add(entry_fac)
         db.session.commit()
     return render_template('admin.html')
@@ -115,9 +149,9 @@ def addsubject():
 @app.route("/assignfacultysubject",methods=['GET', 'POST'])
 def facultysubjects():
     if request.method == "POST":
-        f_id=request.form.get('fid')
+        f_id = request.form.get('fid')
         f_subcode = request.form.get('fsubcode')
-        entry_class=Test_class(f_id=f_id,sub_code=f_subcode)
+        entry_class = Test_class(f_id=f_id, sub_code=f_subcode)
         db.session.add(entry_class)
         db.session.commit()
     return render_template('assignfacultysubject.html')
@@ -126,13 +160,17 @@ def facultysubjects():
 @app.route("/assignstudentclass",methods=['GET', 'POST'])
 def studentclass():
     if request.method == "POST":
-        s_id = request.form.get('sid')
-        c_id= request.form.get('cid')
-        entry_student_class = Test_student_class(s_id=s_id,class_id=c_id)
-        db.session.add(entry_student_class)
-        db.session.commit()
-
-    return render_template('assignstudentclass.html')
+        stu_data_csv = request.files['scsv']
+        stu_data_csv.save(
+            os.path.join(app.config['upload_folder_student_data'], secure_filename(stu_data_csv.filename)))
+        cursor = mydb.cursor()
+        csv_data = csv.reader(
+            open('C:\\Users\\ketul\\PycharmProjects\\SDP-project\\Database\\StudentData\\StudentData.csv'))
+        for row in csv_data:
+            cursor.execute('INSERT INTO test_student_class (stu_class_id,s_id,class_id) VALUES (%s,%s,%s)', row)
+        mydb.commit()
+        cursor.close()
+    return render_template('addstudents.html')
 
 
 @app.route("/studentform")
@@ -148,9 +186,104 @@ def facultydetails():
 def subjectdetails():
     return render_template('subjectform.html')
 
+@app.route("/attendance")
+def attendance():
+    return redirect(url_for('takeattendance', f_id=id))
+
+@app.route("/takeattendance/<string:f_id>", methods=['GET', 'POST'])
+def takeattendance(f_id):
+    cursor = mysql.connection.cursor()
+    data = cursor.execute("select sub_name from test_subject as sub INNER JOIN test_class as cla on sub.sub_code=cla.sub_code where cla.f_id= %s",[f_id])
+
+    return render_template('takeattendance.html', subject0=[ x[0] for x in cursor.fetchall()],fid=f_id)
 
 
 
 
+
+
+@app.route("/addnewstudentphoto")
+def addnewstudentphoto():
+    return render_template('addstudentphoto.html')
+
+@app.route("/studentphoto",methods=['GET', 'POST'])
+def studentphoto():
+    global stu_id
+    stu_id=request.form.get('sid')
+    return redirect(url_for('addstudentphoto',stuid=stu_id))
+
+@app.route("/addstudentphoto/<string:stuid>")
+def addstudentphoto(stuid):
+    cam = cv2.VideoCapture(0)
+
+    face_detector = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+
+    count = 0
+    while(True):
+        ret, img = cam.read()
+        faces = face_detector.detectMultiScale(img, 1.3, 5)
+        for (x,y,w,h) in faces:
+            x1 = x
+            y1 = y
+            x2 = x+w
+            y2 = y+h
+            cv2.rectangle(img, (x1,y1), (x2,y2), (255,255,255), 2)
+            count += 1
+            cv2.imwrite("Database/"+ stuid + ".jpg", img[y1:y2,x1:x2])
+            cv2.imshow('image', img)
+        k = cv2.waitKey(200) & 0xff
+        if k == 27:
+            break
+        elif count >= 1:
+             break
+    cam.release()
+    cv2.destroyAllWindows()
+    return render_template('addstudentphoto.html')
+
+
+@app.route('/camera',methods=['POST'])
+def camera():
+    cap=cv2.VideoCapture(0)
+    while True:
+        ret,img=cap.read()
+        img=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+        cv2.imwrite("static/cam.png",img)
+
+        # return render_template("camera.html",result=)
+        time.sleep(0.1)
+        return json.dumps({'status': 'OK', 'result': "static/cam.png"})
+        if cv2.waitKey(0) & 0xFF ==ord('q'):
+            break
+    cap.release()
+
+
+
+def gen(camera):
+
+    while True:
+        global data
+        data= camera.get_frame()
+        att_data.append(data[1])
+        global frame
+        frame=data[0]
+        global out
+        out=(b'--frame\r\n'
+              b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+
+        return out
+
+@app.route('/startattendance')
+def startattendance():
+    return Response(gen(VideoCamera()), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/closeattendance')
+def closeattendance():
+    print(att_data)
+    with open('my_csv.csv', 'w', newline='') as f:
+        w = csv.writer(f)
+        for i in range(len(att_data)):
+            w.writerow([i+1,att_data[i]])
+
+    return render_template('faculty.html')
 
 app.run(debug=True)
