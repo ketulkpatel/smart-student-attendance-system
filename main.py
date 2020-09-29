@@ -47,10 +47,14 @@ class Test_faculty(db.Model):
     f_id=db.Column(db.String(11),nullable=False,primary_key=True)
     f_name = db.Column(db.String(11), nullable=False)
     f_password = db.Column(db.String(11), nullable=False)
+    f_branch = db.Column(db.String(11), nullable=False)
+    f_sem= db.Column(db.Integer, nullable=False)
     f_contact = db.Column(db.String(11), nullable=False)
     classes = db.relationship('Test_class', backref='test_faculty', lazy=True)
 
 class Test_subject(db.Model):
+    sub_branch=db.Column(db.String(11),nullable=False)
+    sub_sem=db.Column(db.Integer,nullable=False)
     sub_code = db.Column(db.String(11),nullable=False,primary_key=True)
     sub_name = db.Column(db.String(11),nullable=False)
     subjects= db.relationship('Test_class', backref='test_subject', lazy=True)
@@ -69,6 +73,8 @@ class Test_student_class(db.Model):
 
 class Test_class(db.Model):
     class_id = db.Column(db.Integer, nullable=False, primary_key=True)
+    class_sem=db.Column(db.Integer, nullable=False, primary_key=True)
+    class_branch=db.Column(db.String(11), nullable=False, primary_key=True)
     f_id = db.Column(db.Integer, db.ForeignKey('test_faculty.f_id'),nullable=False)
     sub_code = db.Column(db.String(11), db.ForeignKey('test_subject.sub_code'),nullable=False)
     students=db.relationship('Test_student_class', backref='test_class', lazy=True)
@@ -128,10 +134,12 @@ def storefacultydetails():
         fid=request.form.get('fid')
         fname=request.form.get('fname')
         fpassword=request.form.get('fpassword1')
+        fbranch=request.form.get('fbranch')
+        fsem = request.form.get('fsemester')
         fcontact=request.form.get('fcontact')
         f = request.files['fimage']
         f.save(os.path.join(app.config['upload_folder_faculty'],secure_filename(f.filename)))
-        entry_fac=Test_faculty(f_id=fid,f_name=fname,f_password=fpassword,f_contact=fcontact)
+        entry_fac=Test_faculty(f_id=fid,f_name=fname,f_password=fpassword,f_branch=fbranch,f_sem=fsem,f_contact=fcontact)
         db.session.add(entry_fac)
         db.session.commit()
     return render_template('admin.html')
@@ -140,9 +148,11 @@ def storefacultydetails():
 @app.route("/addsubject",methods=['GET', 'POST'])
 def addsubject():
     if request.method == "POST":
+        sub_branch=request.form.get('sbranch')
+        sub_sem=request.form.get('ssemester')
         sub_code=request.form.get('subcode')
         sub_name=request.form.get('subjectname')
-        entry_sub = Test_subject(sub_code=sub_code,sub_name=sub_name)
+        entry_sub = Test_subject(sub_code=sub_code,sub_name=sub_name,sub_branch=sub_branch,sub_sem=sub_sem)
         db.session.add(entry_sub)
         db.session.commit()
     return render_template('subjectform.html')
@@ -150,9 +160,14 @@ def addsubject():
 @app.route("/assignfacultysubject",methods=['GET', 'POST'])
 def facultysubjects():
     if request.method == "POST":
+        class_branch=request.form.get('cbranch')
+        class_sem=request.form.get('csemester')
         f_id = request.form.get('fid')
-        f_subcode = request.form.get('fsubcode')
-        entry_class = Test_class(f_id=f_id, sub_code=f_subcode)
+
+        subcode = request.form.get('subcode')
+        c_id = class_branch + class_sem + "-" + subcode
+        entry_class = Test_class(f_id=f_id, sub_code=subcode,class_sem=class_sem,class_branch=class_branch,class_id=c_id)
+
         db.session.add(entry_class)
         db.session.commit()
     return render_template('assignfacultysubject.html')
@@ -168,7 +183,7 @@ def studentclass():
         csv_data = csv.reader(
             open('C:\\Users\\ketul\\PycharmProjects\\SDP-project\\Database\\StudentData\\StudentData.csv'))
         for row in csv_data:
-            cursor.execute('INSERT INTO test_student_class (stu_class_id,s_id,class_id) VALUES (%s,%s,%s)', row)
+            cursor.execute('INSERT INTO test_student_class (s_id,s_name,s_password,s_branch,s_semester,s_contact,class_id) VALUES (%s,%s,%s,%s,%s,%s,%s)', row)
         mydb.commit()
         cursor.close()
     return render_template('addstudents.html')
