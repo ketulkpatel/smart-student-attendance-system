@@ -12,6 +12,7 @@ import mysql.connector
 import csv
 import cv2
 from camera import VideoCamera
+from face_recognition_code import recognition
 
 
 with open('config.json', 'r') as c:
@@ -241,40 +242,17 @@ def addstudentphoto(stuid):
     return render_template('addstudentphoto.html')
 
 
-@app.route('/camera',methods=['POST'])
-def camera():
-    cap=cv2.VideoCapture(0)
-    while True:
-        ret,img=cap.read()
-        img=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-        cv2.imwrite("static/cam.png",img)
-
-        # return render_template("camera.html",result=)
-        time.sleep(0.1)
-        return json.dumps({'status': 'OK', 'result': "static/cam.png"})
-        if cv2.waitKey(0) & 0xFF ==ord('q'):
-            break
-    cap.release()
-
-
-
-def gen(camera):
-
-    while True:
-        global data
-        data= camera.get_frame()
-        att_data.append(data[1])
-        global frame
-        frame=data[0]
-        global out
-        out=(b'--frame\r\n'
-              b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-
-        return out
 
 @app.route('/startattendance')
 def startattendance():
-    return Response(gen(VideoCamera()), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+    input_embedding=recognition.create_input_image_embeddings()
+    name,faces=recognition.recognize_faces_in_cam(input_embedding)
+    print(name)
+    print(faces)
+    att_data.append(name)
+    return redirect(url_for('takeattendance', f_id=id))
+
 
 @app.route('/closeattendance')
 def closeattendance():

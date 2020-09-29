@@ -1,7 +1,30 @@
-import cv2
 import pickle
 from imutils.video import WebcamVideoStream
 import face_recognition
+import glob
+import tensorflow as tf
+from keras.models import Sequential
+from keras.layers import Conv2D, ZeroPadding2D, Activation, Input, concatenate
+from keras.models import Model
+from keras.layers.normalization import BatchNormalization
+from keras.layers.pooling import MaxPooling2D, AveragePooling2D
+from keras.layers.merge import Concatenate
+from keras.layers.core import Lambda, Flatten, Dense
+from keras.engine.topology import Layer
+from keras import backend as K
+import cv2
+import os
+import keras
+import numpy as np
+from numpy import genfromtxt
+import pandas as pd
+import tensorflow as tf
+import utils
+#from utils import LRN2D
+import joblib
+from keras.models import load_model
+from face_recognition_code import recognition
+
 
 
 class VideoCamera(object):
@@ -11,59 +34,28 @@ class VideoCamera(object):
         # instead.
 
         self.stream = WebcamVideoStream(src=0).start()
-        with open("trained_knn_model.clf", 'rb') as f:
-            self.knn_clf = pickle.load(f)
+        new_model = keras.models.load_model('test.h5', custom_objects={'tf': tf})
 
     def __del__(self):
         self.stream.stop()
 
-    def predict(self, frame, knn_clf, distance_threshold=0.4):
-        # Find face locations
-        X_face_locations = face_recognition.face_locations(frame)
-        # print("X_face_locations",X_face_locations[0])
-        # X_face_locations[0][0]: X_face_locations[0][1], X_face_locations[0][2]: X_face_locations[0][3]
-        # try:
-        #     print("here")
-        #     cv2.imshow("fdgd",frame[57:304,242:118])
-        #     cv2.waitKey(1)
-        # except:
-        #     pass
-        # If no faces are found in the image, return an empty result.
-        if len(X_face_locations) == 0:
-            return []
+    def predict(self,image):
 
-        # Find encodings for faces in the test iamge
-        faces_encodings = face_recognition.face_encodings(frame, known_face_locations=X_face_locations)
-
-        # Use the KNN model to find the best matches for the test face
-        closest_distances = knn_clf.kneighbors(faces_encodings, n_neighbors=1)
-        are_matches = [closest_distances[0][i][0] <= distance_threshold for i in range(len(X_face_locations))]
-        for i in range(len(X_face_locations)):
-            print("closest_distances")
-            print(closest_distances[0][i][0])
-
-        # Predict classes and remove classifications that aren't within the threshold
-        return [(pred, loc) if rec else ("unknown", loc) for pred, loc, rec in
-                zip(knn_clf.predict(faces_encodings), X_face_locations, are_matches)]
-
+        input_embeddings = recognition.create_input_image_embeddings()
+        name,face_img = recognition.recognize_faces_in_cam(input_embeddings)
+        return name,face_img
     def get_frame(self):
         image = self.stream.read()
-        li = []
-        global person_name
-        # We are using Motion JPEG, but OpenCV defaults to capture raw images,
-        # so we must encode it into JPEG in order to correctly display the
-        # video stream.
         f = open("trainStatus.txt")
         for i in f:
             isTrained = int(i)
-        if isTrained:  # change updated model file
+        if isTrained:
             # load again
-            with open("trained_knn_model.clf", 'rb') as f:
-                self.knn_clf = pickle.load(f)
+            new_model = load_model('test.h5')
             file = open("trainStatus.txt", "w")
             file.write("0")
             file.close()
-        predictions = self.predict(image, self.knn_clf)
+        predictions = self.predict(image)
         name = ''
         for name, (top, right, bottom, left) in predictions:
             startX = int(left)

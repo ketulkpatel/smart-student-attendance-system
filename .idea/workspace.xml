@@ -2,18 +2,257 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46836396-ec33-4b32-9da8-d77b89fbedce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/SDP-project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SDP-project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera.py" beforeDir="false" afterPath="$PROJECT_DIR$/camera.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/.ipynb_checkpoints/BasicFaceRecognizerUsingWebcam-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/create_input_image_embeddings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/haarcascade_frontalface_default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/images/User_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/images/User_10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/images/User_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/images/User_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/images/User_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/images/User_5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/images/User_6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/images/User_7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/images/User_8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/images/User_9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/img_to_embeddings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/recognize_face.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/recognize_faces_in_cam.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/bn1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/bn1_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/bn1_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/bn1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/bn2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/bn2_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/bn2_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/bn2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/bn3_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/bn3_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/bn3_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/bn3_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/conv1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/conv1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/conv2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/conv2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/conv3_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/conv3_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/dense_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/dense_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_1x1_bn_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_1x1_bn_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_1x1_bn_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_1x1_bn_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_1x1_conv_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_1x1_conv_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_3x3_bn1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_3x3_bn1_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_3x3_bn1_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_3x3_bn1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_3x3_bn2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_3x3_bn2_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_3x3_bn2_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_3x3_bn2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_3x3_conv1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_3x3_conv1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_3x3_conv2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_3x3_conv2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_5x5_bn1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_5x5_bn1_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_5x5_bn1_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_5x5_bn1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_5x5_bn2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_5x5_bn2_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_5x5_bn2_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_5x5_bn2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_5x5_conv1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_5x5_conv1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_5x5_conv2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_5x5_conv2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_pool_bn_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_pool_bn_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_pool_bn_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_pool_bn_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_pool_conv_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3a_pool_conv_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_1x1_bn_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_1x1_bn_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_1x1_bn_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_1x1_bn_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_1x1_conv_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_1x1_conv_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_3x3_bn1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_3x3_bn1_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_3x3_bn1_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_3x3_bn1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_3x3_bn2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_3x3_bn2_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_3x3_bn2_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_3x3_bn2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_3x3_conv1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_3x3_conv1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_3x3_conv2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_3x3_conv2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_5x5_bn1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_5x5_bn1_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_5x5_bn1_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_5x5_bn1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_5x5_bn2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_5x5_bn2_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_5x5_bn2_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_5x5_bn2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_5x5_conv1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_5x5_conv1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_5x5_conv2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_5x5_conv2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_pool_bn_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_pool_bn_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_pool_bn_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_pool_bn_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_pool_conv_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3b_pool_conv_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_3x3_bn1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_3x3_bn1_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_3x3_bn1_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_3x3_bn1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_3x3_bn2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_3x3_bn2_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_3x3_bn2_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_3x3_bn2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_3x3_conv1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_3x3_conv1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_3x3_conv2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_3x3_conv2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_5x5_bn1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_5x5_bn1_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_5x5_bn1_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_5x5_bn1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_5x5_bn2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_5x5_bn2_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_5x5_bn2_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_5x5_bn2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_5x5_conv1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_5x5_conv1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_5x5_conv2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_3c_5x5_conv2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_1x1_bn_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_1x1_bn_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_1x1_bn_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_1x1_bn_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_1x1_conv_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_1x1_conv_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_3x3_bn1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_3x3_bn1_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_3x3_bn1_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_3x3_bn1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_3x3_bn2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_3x3_bn2_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_3x3_bn2_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_3x3_bn2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_3x3_conv1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_3x3_conv1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_3x3_conv2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_3x3_conv2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_5x5_bn1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_5x5_bn1_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_5x5_bn1_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_5x5_bn1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_5x5_bn2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_5x5_bn2_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_5x5_bn2_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_5x5_bn2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_5x5_conv1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_5x5_conv1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_5x5_conv2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_5x5_conv2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_pool_bn_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_pool_bn_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_pool_bn_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_pool_bn_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_pool_conv_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4a_pool_conv_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_3x3_bn1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_3x3_bn1_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_3x3_bn1_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_3x3_bn1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_3x3_bn2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_3x3_bn2_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_3x3_bn2_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_3x3_bn2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_3x3_conv1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_3x3_conv1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_3x3_conv2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_3x3_conv2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_5x5_bn1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_5x5_bn1_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_5x5_bn1_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_5x5_bn1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_5x5_bn2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_5x5_bn2_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_5x5_bn2_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_5x5_bn2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_5x5_conv1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_5x5_conv1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_5x5_conv2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_4e_5x5_conv2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_1x1_bn_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_1x1_bn_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_1x1_bn_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_1x1_bn_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_1x1_conv_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_1x1_conv_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_3x3_bn1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_3x3_bn1_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_3x3_bn1_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_3x3_bn1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_3x3_bn2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_3x3_bn2_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_3x3_bn2_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_3x3_bn2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_3x3_conv1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_3x3_conv1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_3x3_conv2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_3x3_conv2_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_3x3_conv2_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_3x3_conv2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_pool_bn_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_pool_bn_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_pool_bn_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_pool_bn_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_pool_conv_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5a_pool_conv_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_1x1_bn_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_1x1_bn_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_1x1_bn_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_1x1_bn_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_1x1_conv_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_1x1_conv_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_3x3_bn1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_3x3_bn1_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_3x3_bn1_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_3x3_bn1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_3x3_bn2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_3x3_bn2_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_3x3_bn2_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_3x3_bn2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_3x3_conv1_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_3x3_conv1_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_3x3_conv2_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_3x3_conv2_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_pool_bn_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_pool_bn_m.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_pool_bn_v.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_pool_bn_w.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_pool_conv_b.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_recognition/weights/inception_5b_pool_conv_w.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/assignfacultysubject.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/assignfacultysubject.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/assignstudentclass.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/faculty.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/faculty.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/facultyForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/facultyForm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/studentform.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/subjectform.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_csv.csv" beforeDir="false" afterPath="$PROJECT_DIR$/my_csv.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/takeattendance.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/takeattendance.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainStatus.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,8 +385,8 @@
     </configuration>
     <list>
       <item itemvalue="Python.SDP-project" />
-      <item itemvalue="Python.python" />
       <item itemvalue="Python.main" />
+      <item itemvalue="Python.python" />
       <item itemvalue="Python.test_main" />
     </list>
     <recent_temporary>
