@@ -1,14 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="46836396-ec33-4b32-9da8-d77b89fbedce" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.ipynb_checkpoints/Untitled-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/Faculty/Virat.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/Faculty/iamge1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/Faculty/image.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/Faculty/milky-way-3840x2160-stars-4k-20311_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/Faculty/sign1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/Faculty/virat-kohli-rcb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/StudentData/StudentClassData.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/StudentData/main.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Database/StudentData/my_csv.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Untitled.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/attendance.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/attendance.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/IT101.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/IT102.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/IT103.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/nextpage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/recordattendance.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/saveattendance.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/showattendance.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/subjectlist.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/uploadattendance.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates2/addstudentphoto.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates2/addstudents.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates2/admin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates2/assignfacultysubject.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates2/faculty.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates2/facultyForm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates2/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates2/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates2/nextpage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates2/query" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates2/showattendance.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates2/student.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates2/subjectform.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates2/subjectlist.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates2/takeattendance.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Database/StudentData/StudentData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Database/StudentData/StudentData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/User_1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my_csv.csv" beforeDir="false" afterPath="$PROJECT_DIR$/my_csv.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/addstudentphoto.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/addstudentphoto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/addstudents.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/addstudents.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/assignfacultysubject.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/assignfacultysubject.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/faculty.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/faculty.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/facultyForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/facultyForm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/subjectform.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/subjectform.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/nextattendance.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates2/nextattendance.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates2/signin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/student.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/student.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/takeattendance.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/takeattendance.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +85,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Face-Recognition" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -260,13 +308,13 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="176" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1600773320806" />
-    <state x="186" y="10" key="SettingsEditor" timestamp="1600855110380">
+    <state x="186" y="10" key="SettingsEditor" timestamp="1601452349224">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="186" y="10" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1600855110380" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1599106433191">
+    <state x="186" y="10" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1601452349224" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603187493540">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1599106433191" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603187493540" />
   </component>
 </project>

@@ -23,7 +23,13 @@ table.center {
 					<span class="login100-form-title p-b-33">
 						ADD STUDENT'S DATA
 					</span>
-
+					{% with messages = get_flashed_messages() %}
+						{% if messages %}
+							{% for message in messages %}
+								<p>{{ message }}</p>
+							{% endfor %}
+						{% endif %}
+					{% endwith %}
 					<div class="wrap-input100 validate-input">
 						
 						<div class="files">Select student's csv file<input type="file" name="scsv" id="files" accept=".csv"/>
@@ -35,7 +41,7 @@ table.center {
 								
 					<div class="container-login100-form-btn m-t-20">
 						<button class="login100-form-btn" type="submit">
-							SUBMIT
+							NEXT
 						</button>
 					</div>
 

@@ -36,24 +36,43 @@ table.center {
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-				<form class="login100-form validate-form" action="/studentphoto" method="post" onSubmit = "return checkPassword(this)" enctype="multipart/form-data">
+				<form class="login100-form validate-form" action="/storeclass" method="post" onSubmit = "return checkPassword(this)" enctype="multipart/form-data">
 					<span class="login100-form-title p-b-33">
-						ADD STUDENT PHOTO
+						Creat Class
 					</span>
+					<div class="wrap-input100  validate-input">
+									<div class="input100">
+										<select class="input100" name="selectsubject" required> 
+											<option value="">Select Subject</option> 
+											{% for sub in sublist %}
+			
+											<option value="{{ sub }}" >{{ sub }}</option>
+										
+											{% endfor %}
+											
+											<span class="focus-input100-1"></span>
+											<span class="focus-input100-2"></span>
+										</select> 	
+									</div>
+								</div>
+					
 
-    				<div class="wrap-input100 validate-input" data-validate = "Valid uid is required: 00exaaa000">
-						<input class="input100" type="text" name="sid" placeholder="Enter Student Id" required>
-						<span class="focus-input100-1"></span>
-						<span class="focus-input100-2"></span>
-					</div>
+					
+    				
+
+				
 
 					<div class="container-login100-form-btn m-t-20">
 						<button class="login100-form-btn" type="submit">
-							 TAKE STUDENT PHOTO
+								SUBMIT
 						</button>
-					</div>
+					</div> 
+
+					
+					
+			
 				</form>
-					<form class="login100-form validate-form" action="/admin">
+					<form class="login100-form validate-form" action="/assignfacultysubject">
 					
 					<div class="container-login100-form-btn m-t-20">
 						<button class="login100-form-btn" type="submit" >
